@@ -107,9 +107,9 @@ trait Element extends js.Object {
   def data(key: String, value: js.Any): Element = js.native
   def data(key: String): js.Any = js.native
   def dblclick(handler: js.Function1[Element, Unit]): Element = js.native
-  def drag(onmove: js.Function1[Element, Unit],
-           onstart: js.Function1[Element, Unit],
-           onend: js.Function1[Element, Unit],
+  def drag(onmove: js.ThisFunction2[Element, Double, Double, Unit],
+           onstart: js.ThisFunction0[Element, Unit],
+           onend: js.ThisFunction0[Element, Unit],
            mcontext: js.Dynamic = js.Dynamic.literal(),
            scontext: js.Dynamic = js.Dynamic.literal(),
            econtext: js.Dynamic = js.Dynamic.literal()
@@ -138,6 +138,8 @@ trait Element extends js.Object {
   def next: Element = js.native
   def node: dom.Element = js.native
   def onDragOver(handler: js.Function1[Element, Unit]): Unit = js.native
+  var ox: Double = js.native
+  var oy: Double = js.native
   def paper: Paper = js.native
   def pause: Element = js.native
   def pause(anim: Animation): Element = js.native
@@ -148,7 +150,7 @@ trait Element extends js.Object {
   def resume: Element = js.native
   def resume(anim: Animation): Element = js.native
   def rotate(deg: Double, cx: Double = 0.0, cy: Double = 0.0): Element = js.native
-  def scala(sx: Double, sy: Double, cx: Double = 0.0, cy: Double = 0.0): Element = js.native
+  def scale(sx: Double, sy: Double, cx: Double = 0.0, cy: Double = 0.0): Element = js.native
   def setTime(anim: Animation, value: Double = 0.0): js.UndefOr[Element] = js.native
   def show(): Unit = js.native
   def status(): js.Array[Status] = js.native

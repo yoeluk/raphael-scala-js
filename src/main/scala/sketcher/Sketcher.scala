@@ -1,5 +1,6 @@
 package sketcher
 
+import org.scalajs.dom
 import org.scalajs.dom.html
 import scala.scalajs._,js.annotation.JSExport
 
@@ -30,6 +31,25 @@ object Sketcher {
         fill = "#fc0"
       )
     ))
-    paper.forEach((el: Element) => {el.attr(js.Dynamic.literal(stroke = "blue"));()})
+    paper.forEach( (el: Element) => {
+      el.attr(js.Dynamic.literal(stroke = "blue"))
+      ()
+    })
+    val rect = elems(1)
+    rect.drag(
+      onmove = { (el: Element, dx: Double, dy: Double) =>
+        el.transform(s"...t$dx $dy")
+        ()
+      },
+      onstart = { (el: Element) =>
+        el.transform("...s2 2")
+        el.ox = el.attr("x").asInstanceOf[Double]
+        el.oy = el.attr("x").asInstanceOf[Double]
+        ()
+      },
+      onend = { (el: Element) =>
+        el.transform("...s1 1");()
+      }
+    )
   }
 }
