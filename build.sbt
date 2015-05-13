@@ -34,7 +34,6 @@ lazy val raphaeljs = project.settings(commonSettings: _*).settings(
     else
       Some("releases"  at nexus + "service/local/staging/deploy/maven2")
   },
-
   pomExtra := {
     <url>https://github.com/yoeluk/raphael-scala-js</url>
       <licenses>
