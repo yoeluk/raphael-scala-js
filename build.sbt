@@ -36,7 +36,7 @@ lazy val raphaeljs = project.settings(commonSettings: _*).settings(
   },
 
   pomExtra := {
-    <url>https://github.com/yoeluk/paper-scala-js</url>
+    <url>https://github.com/yoeluk/raphael-scala-js</url>
       <licenses>
         <license>
           <name>Apache 2</name>
@@ -44,9 +44,9 @@ lazy val raphaeljs = project.settings(commonSettings: _*).settings(
         </license>
       </licenses>
       <scm>
-        <connection>https://github.com/yoeluk/paper-scala-js.git</connection>
-        <developerConnection>scm:git:git@github.com:yoeluk/paper-scala-js.git</developerConnection>
-        <url>github.com/yoeluk/paper-scala-js</url>
+        <connection>https://github.com/yoeluk/raphael-scala-js.git</connection>
+        <developerConnection>scm:git:git@github.com:yoeluk/raphael-scala-js.git</developerConnection>
+        <url>github.com/yoeluk/raphael-scala-js</url>
       </scm>
       <developers>
         <developer>
