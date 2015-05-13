@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Example Scala.js application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body style="margin: 0px">
+
+<div style="display: block" id="scene"></div>
+
+<script type="text/javascript" src="../sketcher-fastopt.js"></script>
+<script type="text/javascript" src="../sketcher-jsdeps.js"></script>
+<script type="text/javascript">
+    // Only executed our code once the DOM is ready.
+    window.onload = function() {
+        // Get a reference to the canvas object
+        var scene = document.getElementById('scene');
+        // Call the scalajs app entry point
+        sketcher.Sketcher().main(scene);
+    }
+</script>
+</body>
+</html>
