@@ -40,10 +40,10 @@ package object raphaeljs {
   @JSName("Raphael")
   object Raphael extends js.Object {
     def apply(el: String, w: Double, h: Double, cb: => Unit): Paper = js.native
-    def apply(el: html.Element, w: Double, h: Double): Paper = js.native
+    def apply(el: html.Element, w: Double, h: Double, cb: => Unit): Paper = js.native
     def apply(x: Double, y: Double, w: Double, h: Double, cb: => Unit): Paper = js.native
     def angle(x1: Double, y1: Double, x2: Double, y2: Double, x3: Double, y3: Double): Double = js.native
-    def animation(params: js.Dynamic, ms: Double, easing: String = "", callback: => Unit = ()): Animation = js.native
+    def animation(params: js.Dynamic, ms: Double, easing: String = "", callback: => Unit): Animation = js.native
     def bezierBBox(p1x: Double,
                    p1y: Double,
                    c1x: Double,

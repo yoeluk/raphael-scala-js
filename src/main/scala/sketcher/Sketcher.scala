@@ -12,7 +12,7 @@ import raphaeljs._
 object Sketcher {
   @JSExport
   def main(scene: html.Element): Unit = {
-    val paper = Raphael(scene, 500, 500)
+    val paper = Raphael(scene, 500, 500, {})
     val elems = paper.add(js.Array(
       js.Dynamic.literal(
         `type` = "circle",
