@@ -7,6 +7,7 @@ import scala.scalajs.js.annotation.JSName
  * Created by yoelusa on 12/05/15.
  */
 
+@js.native
 trait Transform extends js.Object {
   def dx: js.UndefOr[Double] = js.native
   def dy: js.UndefOr[Double] = js.native
@@ -17,6 +18,7 @@ trait Transform extends js.Object {
   def isSimple: js.UndefOr[Boolean] = js.native
 }
 
+@js.native
 trait Matrix extends js.Object {
   def add(a: Double, b: Double, c: Double, d: Double, e: Double, f: Double, matrix: Matrix): Unit = js.native
   @JSName("clone")

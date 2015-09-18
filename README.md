@@ -7,7 +7,7 @@ To add Raphael-Scala-js to your Scala.js project include it in the build.sbt
 resolvers += "Sonatype snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
 
 libraryDependencies ++= Seq(
-  "com.github.yoeluk" %%% "raphael-scala-js" % "0.1.0-SNAPSHOT"
+  "com.github.yoeluk" %%% "raphael-scala-js" % "0.2-SNAPSHOT"
 )
 ```
 
