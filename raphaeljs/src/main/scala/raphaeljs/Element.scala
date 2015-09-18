@@ -9,6 +9,7 @@ import scala.scalajs.js.annotation.JSName
  * Created by yoelusa on 11/05/15.
  */
 
+@js.native
  trait Attrs extends js.Object {
   @JSName("arrow-end")
   var arrow_end: js.UndefOr[String] = js.native
@@ -59,6 +60,7 @@ import scala.scalajs.js.annotation.JSName
   var y: js.UndefOr[Double] = js.native
 }
 
+@js.native
 trait BBox extends js.Object {
   var x: js.UndefOr[Double] = js.native
   var y: js.UndefOr[Double] = js.native
@@ -68,12 +70,14 @@ trait BBox extends js.Object {
   var height: js.UndefOr[Double] = js.native
 }
 
+@js.native
 trait Point extends js.Object {
   var x: js.UndefOr[Double] = js.native
   var y: js.UndefOr[Double] = js.native
   var alpha: js.UndefOr[Double] = js.native
 }
 
+@js.native
 trait Glow extends js.Object {
   var width: js.UndefOr[Double] = js.native
   var fill: js.UndefOr[Boolean] = js.native
@@ -83,11 +87,13 @@ trait Glow extends js.Object {
   var color: js.UndefOr[String] = js.native
 }
 
+@js.native
 trait Status extends js.Object {
   def anim: Animation = js.native
   var status: Double = js.native
 }
 
+@js.native
 trait Element extends js.Object {
   @JSName("type")
   def kind: String = js.native
@@ -110,20 +116,20 @@ trait Element extends js.Object {
   def drag(onmove: js.ThisFunction2[Element, Double, Double, Unit],
            onstart: js.ThisFunction0[Element, Unit],
            onend: js.ThisFunction0[Element, Unit],
-           mcontext: js.Dynamic = js.Dynamic.literal(),
-           scontext: js.Dynamic = js.Dynamic.literal(),
-           econtext: js.Dynamic = js.Dynamic.literal()
+           mcontext: js.Dynamic = js.native,
+           scontext: js.Dynamic = js.native,
+           econtext: js.Dynamic = js.native
           ): Element = js.native
   def getBBox(isWithoutTransform: Boolean): BBox = js.native
   def getPointAtLength(length: Double): Point = js.native
   def getSubpath(from: Double, to: Double): String = js.native
   def getTotalLength: Double = js.native
-  def glow(glow: js.Dynamic = js.Dynamic.literal()): Set = js.native
+  def glow(glow: js.Dynamic = js.native): Set = js.native
   def hide(): Unit = js.native
   def hover(f_in: js.Function1[Element, Unit],
             f_out: js.Function1[Element, Unit],
-            icontext: js.Dynamic = js.Dynamic.literal(),
-            ocontext: js.Dynamic = js.Dynamic.literal()
+            icontext: js.Dynamic = js.native,
+            ocontext: js.Dynamic = js.native
            ): Element = js.native
   def id: Int = js.native
   def insertAfter(): Element = js.native

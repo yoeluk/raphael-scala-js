@@ -1,11 +1,12 @@
+import com.lihaoyi.workbench.Plugin._
+
 workbenchSettings
 
 lazy val commonSettings = Seq(
-  scalaVersion := "2.11.6",
+  scalaVersion := "2.11.7",
   scalacOptions ++= Seq(
     "-feature",
     "-deprecation",
-    "-target:jvm-1.7",
     "-encoding", "UTF-8",
     "-language:implicitConversions",
     "-language:higherKinds",
@@ -16,11 +17,9 @@ lazy val commonSettings = Seq(
 lazy val raphaeljs = project.settings(commonSettings: _*).settings(
   sonatypeSettings,
   organization               := "com.github.yoeluk",
-  version                    := "0.1.0-SNAPSHOT",
+  version                    := "0.2-SNAPSHOT",
   name                       := "raphael-scala-js",
-  libraryDependencies ++= Seq(
-    "org.scala-js" %%% "scalajs-dom" % "0.8.0"
-  ),
+  libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.8.1",
   jsDependencies += "org.webjars.bower" % "raphael" % "2.1.4" / "raphael-min.js" commonJSName "raphael",
   persistLauncher in Compile := true,
   persistLauncher in Test    := false,
@@ -36,29 +35,29 @@ lazy val raphaeljs = project.settings(commonSettings: _*).settings(
   },
   pomExtra := {
     <url>https://github.com/yoeluk/raphael-scala-js</url>
-      <licenses>
-        <license>
-          <name>Apache 2</name>
-          <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        </license>
-      </licenses>
-      <scm>
-        <connection>https://github.com/yoeluk/raphael-scala-js.git</connection>
-        <developerConnection>scm:git:git@github.com:yoeluk/raphael-scala-js.git</developerConnection>
-        <url>github.com/yoeluk/raphael-scala-js</url>
-      </scm>
-      <developers>
-        <developer>
-          <id>yoeluk</id>
-          <name>Yoel RGD</name>
-          <url>https://github.com/yoeluk/</url>
-        </developer>
-      </developers>
+    <licenses>
+      <license>
+        <name>Apache 2</name>
+        <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      </license>
+    </licenses>
+    <scm>
+      <connection>https://github.com/yoeluk/raphael-scala-js.git</connection>
+      <developerConnection>scm:git:git@github.com:yoeluk/raphael-scala-js.git</developerConnection>
+      <url>github.com/yoeluk/raphael-scala-js</url>
+    </scm>
+    <developers>
+      <developer>
+        <id>yoeluk</id>
+        <name>Yoel RGD</name>
+        <url>https://github.com/yoeluk/</url>
+      </developer>
+    </developers>
   }
 ).enablePlugins(ScalaJSPlugin)
 
 lazy val root = (project in file(".")).settings(commonSettings: _*).settings(
-  version := "0.1.0-SNAPSHOT",
+  version := "0.2-SNAPSHOT",
   name := "Sketcher",
   persistLauncher in Compile := false,
   persistLauncher in Test := false,
@@ -72,5 +71,9 @@ lazy val root = (project in file(".")).settings(commonSettings: _*).settings(
 bootSnippet := "sketcher.Sketcher().main(document.getElementById('scene'));"
 
 updateBrowsers <<= updateBrowsers.triggeredBy(fastOptJS in Compile)
+
+refreshBrowsers <<= refreshBrowsers.triggeredBy(fastOptJS in Compile)
+
+spliceBrowsers <<= spliceBrowsers.triggeredBy(fastOptJS in Compile)
 
 scalaJSStage in Global := FastOptStage

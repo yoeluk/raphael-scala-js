@@ -6,11 +6,13 @@ import scala.scalajs._,js.annotation.JSName
  */
 package object raphaeljs {
 
+  @js.native
   trait BezierInfo extends js.Object {
     var min: Point = js.native
     var max: Point = js.native
   }
 
+  @js.native
   trait PointInfo extends Point {
     def m: Point = js.native
     def n: Point = js.native
@@ -18,6 +20,7 @@ package object raphaeljs {
     def end: Point = js.native
   }
 
+  @js.native
   trait ColorInfo extends js.Object {
     var r: js.UndefOr[Double] = js.native
     var g: js.UndefOr[Double] = js.native
@@ -30,12 +33,14 @@ package object raphaeljs {
     var l: js.UndefOr[Double] = js.native
   }
 
+  @js.native
   trait Raphael extends js.Object
 
+  @js.native
   @JSName("Raphael")
   object Raphael extends js.Object {
     def apply(el: String, w: Double, h: Double, cb: => Unit): Paper = js.native
-    def apply(el: html.Element, w: Double, h: Double, cb: => Unit = {}): Paper = js.native
+    def apply(el: html.Element, w: Double, h: Double): Paper = js.native
     def apply(x: Double, y: Double, w: Double, h: Double, cb: => Unit): Paper = js.native
     def angle(x1: Double, y1: Double, x2: Double, y2: Double, x3: Double, y3: Double): Double = js.native
     def animation(params: js.Dynamic, ms: Double, easing: String = "", callback: => Unit = ()): Animation = js.native

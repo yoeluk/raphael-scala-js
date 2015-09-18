@@ -6,6 +6,7 @@ import scala.scalajs.js
  * Created by yoelusa on 11/05/15.
  */
 
+@js.native
 trait Paper extends js.Object {
   def add(json: js.Array[js.Dynamic]): js.Array[Element] = js.native
   def bottom: Element = js.native
@@ -13,7 +14,7 @@ trait Paper extends js.Object {
   def clear(): Unit = js.native
   def customAttributes: js.Dynamic = js.native
   def ellipse(x: Double, y: Double, rx: Double, ry: Double): Element = js.native
-  def forEach(callback: js.Function1[Element, Unit], thisArg: js.Dynamic = js.Dynamic.literal()): Paper = js.native
+  def forEach(callback: js.Function1[Element, Unit], thisArg: js.Dynamic = js.native): Paper = js.native
   def getById(id: Int): Element = js.native
   def getElementByPoint(x: Double, y: Double): Element = js.native
   def getElementsByPoint(x: Double, y: Double): js.Array[Element] = js.native

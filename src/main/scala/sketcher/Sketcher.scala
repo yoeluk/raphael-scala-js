@@ -1,9 +1,7 @@
 package sketcher
 
-import org.scalajs.dom
 import org.scalajs.dom.html
 import scala.scalajs._,js.annotation.JSExport
-
 import raphaeljs._
 
 /**
@@ -42,13 +40,20 @@ object Sketcher {
         ()
       },
       onstart = { (el: Element) =>
-        el.transform("...s2 2")
-        el.ox = el.attr("x").asInstanceOf[Double]
-        el.oy = el.attr("x").asInstanceOf[Double]
+        el.ox = el.matrix.x(
+          el.attr("x").asInstanceOf[Double],
+          el.attr("y").asInstanceOf[Double]
+        )
+        el.oy = el.matrix.y(
+          el.attr("x").asInstanceOf[Double],
+          el.attr("y").asInstanceOf[Double]
+        )
+        el.transform(s"t${el.ox} ${el.oy}s2 2")
         ()
       },
       onend = { (el: Element) =>
-        el.transform("...s1 1");()
+        el.transform("...s1 1")
+        ()
       }
     )
   }
